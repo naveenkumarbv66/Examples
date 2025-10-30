@@ -178,5 +178,10 @@ fun MyListScreen(modifier: Modifier = Modifier) {
     }
 }
 
+/*
+backStackEntry.arguments is for forward navigation arguments to the current destination.
+navController.previousBackStackEntry?.savedStateHandle is for passing data backwards (results) from a destination that is being popped off the back stack to the previous destination.
+*/
+
 @Parcelize
 data class rowData(var name: String, var location: String, val description: String) : Parcelable
