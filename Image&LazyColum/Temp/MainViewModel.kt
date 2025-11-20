@@ -1,6 +1,5 @@
 package com.naveen.testing
 
-import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
@@ -25,18 +24,6 @@ class MainViewModel : ViewModel() {
             }
         }
     }*/
-
-    fun onEvent(event: ScreenEvent) {
-        when (event) {
-            is ScreenEvent.onClickItem -> {
-            }
-            is ScreenEvent.onDeleteItem -> {
-                deleteItem(event.person)
-            }
-            is ScreenEvent.onModifyItem -> {
-            }
-        }
-    }
 
     fun setDefaultValuesForList(){
         _items.value = listOf(

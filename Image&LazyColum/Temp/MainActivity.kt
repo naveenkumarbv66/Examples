@@ -77,7 +77,33 @@ fun Greeting(name: String, modifier: Modifier = Modifier, viewModel: MainViewMod
 
     LazyColumn (modifier) {
         items(itemsList, key = {it.id}){ item ->
-            RowUI(item, count.toString(), onClickedRow = viewModel::onEvent)
+            RowUI(item, count.toString()){ screenEvents ->
+                count++
+                when(screenEvents){
+                    is ScreenEvent.onClickItem -> {
+                        Toast.makeText(
+                            context,
+                            "Selected: ".plus(screenEvents.person.name),
+                            Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                    is ScreenEvent.onDeleteItem -> {
+                        Toast.makeText(
+                            context,
+                            "Selected for delete: ".plus(screenEvents.person.name),
+                            Toast.LENGTH_SHORT)
+                            .show()
+                        viewModel.deleteItem(screenEvents.person)
+                    }
+                    is ScreenEvent.onModifyItem -> {
+                        Toast.makeText(
+                            context,
+                            "Selected for modification: ".plus(screenEvents.person.name),
+                            Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                }
+            }
         }
     }
 
