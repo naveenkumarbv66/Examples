@@ -5,6 +5,8 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
+data class PersonTest(val name: String, val id: Int, val location: String)
+
 fun main()  {
 
     // option one
@@ -19,6 +21,31 @@ fun main()  {
         if(!resultTwo.contains(i)) resultTwo.add(i)
     }
     println("resultTwo.contains(i) ".plus(resultTwo))
+
+    //----------------------------------------------------------------------
+
+    val personList = listOf<PersonTest>(
+       PersonTest("one",1,"one"),
+       PersonTest("two",2,"two"),
+       PersonTest("three",3,"three"),
+       PersonTest("four",4,"four"),
+       PersonTest("Five",5,"Five"),
+       PersonTest("six",6,"six"),
+       PersonTest("six",6,"six"),
+       PersonTest("one",1,"one"),
+       PersonTest("Five test",5,"Five test"),
+       PersonTest("four test",4,"four test"),
+   )
+
+    val removeDuplicateRow = personList.distinct()
+
+    val removeDuplicateRowByID = personList.distinctBy { it.id }
+
+    println(removeDuplicateRowByID)
+
+    println(removeDuplicateRow)
+
+    //toSet() (removes duplicates but order not guaranteed)
 }
 
 
