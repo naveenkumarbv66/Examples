@@ -6,7 +6,7 @@ fun main(){
 
     val num = 5
         .also { println("Also 1: $it") }
-        .let {
+        .let { //Import
             println("Let: $it")
             it + 5
         }
@@ -14,11 +14,11 @@ fun main(){
             println("Also 2: $it")
             it + it
         }
-        .run {
+        .run { //Import
             println("Run: $this")
             this + 10
         }
-        .apply {
+        .apply { 
             println("Apply: $this")
             this + this
         }
