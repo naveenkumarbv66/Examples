@@ -6,7 +6,12 @@ fun majorityElement(input: IntArray){
     var hashMap = HashMap<Int, Int>()
 
     input.forEach { value ->
-        val count = hashMap.getOrDefault(value, 0) + 1
+        val count = hashMap.getOrDefault(value, 0) + 1  
+        /*  getOrDefault(value, 0) + 1   => (currentVlaue, Default value)
+                 If the key exists → returns its current count
+                 If the key does NOT exist → returns 0 (default value)
+                 Then + 1 increments the count
+        */
         hashMap[value] = count
     }
 
