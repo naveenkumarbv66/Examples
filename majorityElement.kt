@@ -27,3 +27,8 @@ fun main(){
     val nums1 = intArrayOf(12,32,12,10,32,1,2,32,10,13)
     majorityElement(nums1)
 }
+
+/*
+{32=3, 10=2, 12=2, 1=1, 2=1, 13=1}
+Number: 32 Count: 3
+*/
